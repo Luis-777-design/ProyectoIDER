@@ -1,0 +1,89 @@
+-- Crear tipo ENUM para roles
+CREATE TYPE role_enum AS ENUM ('Usuario', 'Admin');
+
+-- Crear tabla Usuario
+CREATE TABLE usuario (
+    idUsuario int PRIMARY KEY NOT NULL,
+    Email varchar(100) NOT NULL,
+    Pass varchar(30) NOT NULL,
+    Rol role_enum NOT NULL
+);
+
+select * from usuario;
+
+-- Crear tabla Survey
+CREATE TABLE survey (
+    idSurvey serial PRIMARY KEY,
+    title varchar(150),
+    description varchar(200),
+    creationDate date,
+    finishDate date	
+);
+
+select * from survey;
+
+-- Crear tabla SurveySection
+CREATE TABLE surveySection (
+    idSection serial PRIMARY KEY,
+    title varchar(150)	
+);
+
+select * from surveySection;
+
+-- Crear tabla Report
+CREATE TABLE report (
+    idReport serial PRIMARY KEY,
+    idSurvey int,
+    stadistic text
+);
+select * from report;
+
+-- Crear tabla Response
+CREATE TABLE response (
+    idResponse serial PRIMARY KEY,
+    idUsuario int,
+    idSurvey int,
+    idQuestion int,
+    answers text
+);
+
+seelct * from response;
+
+-- Crear tabla Question
+CREATE TABLE question (
+    idQuestion serial PRIMARY KEY,
+    idSurvey int,
+    idSurveySection int,
+    idResponse int,
+    question text
+);
+
+select * from question;
+
+-- Crear tabla Opcion
+CREATE TABLE opcion (
+    idOpcion serial PRIMARY KEY,
+    idQuestion int,
+    isSelect boolean NOT NULL
+);
+
+seelct * from opcion;
+
+-- Agregar claves foráneas después de que todas las tablas se han creado
+ALTER TABLE report
+ADD CONSTRAINT fk_survey_report FOREIGN KEY (idSurvey) REFERENCES survey(idSurvey);
+
+ALTER TABLE response
+ADD CONSTRAINT fk_usuario_response FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
+ADD CONSTRAINT fk_survey_response FOREIGN KEY (idSurvey) REFERENCES survey(idSurvey),
+ADD CONSTRAINT fk_question_response FOREIGN KEY (idQuestion) REFERENCES question(idQuestion);
+
+ALTER TABLE question
+ADD CONSTRAINT fk_survey_question FOREIGN KEY (idSurvey) REFERENCES survey(idSurvey),
+ADD CONSTRAINT fk_section_question FOREIGN KEY (idSurveySection) REFERENCES surveySection(idSection),
+ADD CONSTRAINT fk_response_question FOREIGN KEY (idResponse) REFERENCES response(idResponse);
+
+ALTER TABLE opcion
+ADD CONSTRAINT fk_question_opcion FOREIGN KEY (idQuestion) REFERENCES question(idQuestion);
+
+
