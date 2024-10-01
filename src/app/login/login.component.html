@@ -1,0 +1,31 @@
+<div class="fondo-difuminado"></div>
+
+<div class="rectangulo-encuesta">
+  <div class="contenedor-titulo-logo">
+    <h2 class="bienvenido">Bienvenido a IDER</h2>
+    <div class="image1">
+      <!-- Aquí puedes agregar la imagen -->
+    </div>
+  </div>
+
+  <label class="usuario-text">Usuario</label>
+  <input type="text" formControlName="username" class="input" placeholder="Ingresa tu usuario">
+
+  <label class="contraseña-text">Contraseña</label>
+  <input [type]="passwordVisible ? 'text' : 'password'" formControlName="password" class="input" placeholder="Ingresa tu contraseña" id="passwordInput">
+
+  <div class="opciones">
+    <label class="mostrar-contraseña">
+      <input type="checkbox" (change)="togglePasswordVisibility()"> Mostrar contraseña
+    </label>
+    <a href="#" class="olvide-contrasena">Olvidé mi contraseña</a>
+  </div>
+
+  <button type="submit" class="boton-ingresar" (click)="onSubmit()">Ingresar</button>
+
+  <div class="registro">
+    <p>No tienes una cuenta? <a (click)="goToRegister()" class="registrarse">Regístrate aquí</a></p>
+  </div>
+
+  <a href="https://ider.gov.co/" class="acerca-del-ider">Acerca del IDER</a>
+</div>

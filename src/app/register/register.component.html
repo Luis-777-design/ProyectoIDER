@@ -1,0 +1,23 @@
+
+<div class="fondo-difuminado"></div>
+
+
+<div class="rectangulo-encuesta">
+    <h2 class="formulario-registro">Registro formulario IDER<br> <span class="ider"></span></h2>
+    <a routerLink="/login" class="icono-home">🏠</a>
+
+       
+        <label for="email" class="usuario-text">E-mail</label>
+        <input type="text" id="email" class="input" formControlName="email" placeholder="Ingrese su correo electrónico" required>
+      
+        <label for="contraseña" class="contraseña-text">Contraseña</label>
+        <input type="password" id="contraseña" class="input" formControlName="contraseña" placeholder="Ingrese su contraseña" required>
+      
+        <button type="submit" class="boton-registrar" [disabled]="!registerForm.valid">Registrar</button>
+         
+</div>
+
+<div class="rectangulo-rojo" *ngIf="mensajeVisible">
+    <h1 class="mensaje-gracias">¡GRACIAS!</h1>
+    <p class="mensaje-exito">El Registro Ha Sido Exitoso</p>
+</div>

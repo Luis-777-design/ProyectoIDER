@@ -1,0 +1,92 @@
+/* Fondo difuminado */
+.fondo-difuminado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-image: url('../../assets/imagenes/imagen2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Estilo del formulario */
+.rectangulo-encuesta {
+    width: 350px;
+    background-color: #fff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 50px;
+    margin: 50px auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.formulario-registro {
+    font-family: 'Arial', sans-serif;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.ider {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.icono-home {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.usuario-text, .contraseña-text {
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.boton-registrar {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo del rectángulo rojo */
+.rectangulo-rojo {
+    width: 250px;
+    background-color: #ff4136;
+    color: white;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+    display: none; /* Inicialmente oculto */
+}
+
+.mensaje-gracias {
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+}
+
+.mensaje-exito {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+}

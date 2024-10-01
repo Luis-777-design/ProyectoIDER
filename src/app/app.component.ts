@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, Route } from '@angular/router'; 
+import { RegisterComponent } from './register/register.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  standalone: true, 
+  imports: [RouterModule] 
 })
 export class AppComponent {
-  title = 'IDER-PROYECT';
+  title = 'proyectoIDER';
 }
